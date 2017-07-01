@@ -6,6 +6,11 @@
 * 上下拉百分比显示
 * 自定义上下拉动画
 
+## 环境
+* XCode 8.0+
+* Swift 3.0+
+* iOS 8.0+
+
 ## 如何导入
 * 1.手动导入
 ```objc
@@ -20,7 +25,6 @@ target '<Your Target Name>' do
 pod 'SwiftFCXRefresh'
 end
 ```
-
 ## 如何使用
 包含头文件
 ```objc
@@ -30,7 +34,7 @@ import SwiftFCXRefresh
 ```objc
 //下拉刷新
 headerRefreshView = tableView.addFCXRefreshHeader { [weak self] (refreshHeader) in
-self?.refreshAction()
+    self?.refreshAction()
 }
 ```
 
@@ -42,41 +46,40 @@ headerRefreshView?.autoRefresh()
 //上拉加载更多
 ```objc
 footerRefreshView = tableView.addFCXRefreshAutoFooter { [weak self] (refreshHeader) in
-self?.loadMoreAction()
+    self?.loadMoreAction()
 }
 ```
 自动上拉刷加载更多
 ```objc
 footerRefreshView = tableView.addFCXRefreshAutoFooter { [weak self] (refreshHeader) in
-self?.loadMoreAction()
+    self?.loadMoreAction()
 }
 ```
 上下拉百分比显示
 ```objc
 headerRefreshView?.pullingPercentHandler = { (percent) in
-headerPercentLabel.text = String.init(format: "%.2f%%", percent * 100)
+    headerPercentLabel.text = String.init(format: "%.2f%%", percent * 100)
 }
 
 footerRefreshView?.pullingPercentHandler = { (percent) in
-footererPercentLabel.text = String.init(format: "%.2f%%", percent * 100)
+    footererPercentLabel.text = String.init(format: "%.2f%%", percent * 100)
 }
 ```
 上下拉刷新、百分比链式调用
 ```objc
 headerRefreshView = tableView.addFCXRefreshHeader { [weak self] (refreshHeader) in
-self?.refreshAction()
+    self?.refreshAction()
 }.pullingPercentHandler(handler: { (percent) in
-//百分比
-print("current percent", percent)
+    //百分比
+    print("current percent", percent)
 })
 
 footerRefreshView = tableView.addFCXRefreshFooter { [weak self] (refreshHeader) in
-self?.loadMoreAction()
+    self?.loadMoreAction()
 }.pullingPercentHandler { (percent) in
-print("current percent", percent)
+    print("current percent", percent)
 }
 ```
-
 
 显示效果：
 ![](FCXRefresh.gif)
