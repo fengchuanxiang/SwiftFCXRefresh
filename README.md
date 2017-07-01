@@ -7,7 +7,7 @@
 * 自定义上下拉动画
 
 ## 环境
-* XCode 8.0+
+* Xcode 8.0+
 * Swift 3.0+
 * iOS 8.0+
 
@@ -22,7 +22,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-pod 'SwiftFCXRefresh'
+    pod 'SwiftFCXRefresh'
 end
 ```
 ## 如何使用
@@ -30,31 +30,32 @@ end
 ```objc
 import SwiftFCXRefresh
 ```
-添加上下拉刷新
+下拉刷新
 ```objc
-//下拉刷新
 headerRefreshView = tableView.addFCXRefreshHeader { [weak self] (refreshHeader) in
     self?.refreshAction()
 }
 ```
 
-//自动下拉刷新调用
+自动下拉刷新调用
 ```objc
 headerRefreshView?.autoRefresh()
 ```
 
-//上拉加载更多
+上拉加载更多
 ```objc
 footerRefreshView = tableView.addFCXRefreshAutoFooter { [weak self] (refreshHeader) in
     self?.loadMoreAction()
 }
 ```
+
 自动上拉刷加载更多
 ```objc
 footerRefreshView = tableView.addFCXRefreshAutoFooter { [weak self] (refreshHeader) in
     self?.loadMoreAction()
 }
 ```
+
 上下拉百分比显示
 ```objc
 headerRefreshView?.pullingPercentHandler = { (percent) in
@@ -65,6 +66,7 @@ footerRefreshView?.pullingPercentHandler = { (percent) in
     footererPercentLabel.text = String.init(format: "%.2f%%", percent * 100)
 }
 ```
+
 上下拉刷新、百分比链式调用
 ```objc
 headerRefreshView = tableView.addFCXRefreshHeader { [weak self] (refreshHeader) in
