@@ -1,5 +1,8 @@
 # SwiftFCXRefresh
-常用的上下拉刷新功能都支持可自定义，只需简单的两三行代码即可完成，主要支持以下功能：
+
+该版本已不再维护，迁移至https://github.com/FCXPods/SwiftFCXRefresh
+
+## 特性
 * 普通上下拉刷新
 * 自动上下拉刷新
 * 上拉无更多数据控制
